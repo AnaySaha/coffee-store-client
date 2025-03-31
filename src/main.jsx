@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App.jsx'
 import './index.css';
 
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -23,8 +24,9 @@ const router = createBrowserRouter([
 },
 
 {
-  path: 'updateCoffee',
-  element: <UpadteCoffee></UpadteCoffee>
+  path: 'updateCoffee/:id',
+  element: <UpadteCoffee></UpadteCoffee>,
+  loader: ({params}) => fetch(`http://localhost:5000/coffee/${params.id}`)
 }
 
 ]);

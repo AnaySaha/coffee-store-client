@@ -2,7 +2,7 @@ import Link from "daisyui/components/link";
 import Swal from "sweetalert2";
 
 
-const CoffeeCard = (coffee) => {
+const CoffeeCard = (coffee, coffees, setCoffees) => {
     const {_id, name, quantity, supplier, taste, category,details, photo } = coffee;
 
     const handleDelete = _id => {
@@ -32,6 +32,9 @@ Swal.fire({
                 text: "Your file has been deleted.",
                 icon: "success"
               });
+
+              const remaining = coffees.filter(coffee = cof._id !== _id);
+              setCoffees(remaining);
         }
       
     })
